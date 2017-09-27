@@ -6,10 +6,10 @@ ENV PACKAGES zlib1g-dev libsparsehash-dev wget make automake g++ cmake
 
 
 ENV BAM_TAR https://github.com/pezmaster31/bamtools/archive/v2.3.0.tar.gz
-ENV BAM_DIR /tmp/bam
+ENV BAM_DIR /bam
 
 ENV SGA_TAR https://github.com/jts/sga/archive/v0.10.13.tar.gz
-ENV SGA_DIR /tmp/sga
+ENV SGA_DIR /sga
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends ${PACKAGES}
@@ -33,8 +33,6 @@ RUN cd ${SGA_DIR} && \
     make && \
     make install && \
     rm -rf ${SGA_DIR}
-
-
 
 
 ADD run /usr/local/bin/
